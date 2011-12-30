@@ -1,0 +1,17 @@
+Parse.sh - A utility for replacing text for reading aloud through utilities such as espeak, or a frontend such as Gespeaker
+---------------------------------------------------------------------------------------------------------------------------------
+ABOUT: Parse.sh is a script that uses sed to make replacements in a body of text so that text to speech programs pronounce them correctly. For example, espeak would pronounce the phrase "$1 million" as "dollar 1 million." Parse.sh replaces the problematic text with an explicit version with the proper pronunciation, "1 million dollars." Other examples include
+	-years, where "1984" goes from "one thousand, nine hundred and eighty-four" to "nineteen eighty-four." 
+	-common abbreviations, such as Sen. -> Senator and Mrs. -> Misses
+	-initialisms, such as Gbps -> Gigabits per second
+Parse.sh attempts to avoid erronious replacements but may still have some hiccups. Additionally, I have tried to employ good coding practices in the script though there may be some room for improvements.
+---------------------------------------------------------------------------------------------------------------------------------
+USAGE: If you are using program like espeak, you can pipe Parse.sh directly into the program.
+	jmizek@cecil:~$ parse.sh | espeak
+Now simply paste your text into the terminal and press Ctrl+D (quit) to play it. However, if you are using a frontend to espeak such as Gespeaker, you must copy the result of the parsing from somewhere and paste it into the frontend. I do it this way:
+	jmizek@cecil:~$ parse.sh > out ; gedit out
+I then copy the text from Gedit and paste it into Gespeaker.
+---------------------------------------------------------------------------------------------------------------------------------
+FUTURE CHANGES: I occasionally add more functionality to Parse.sh as I encounter problems in pronunciation. I expect this to increasingly be for more specialized cases, such as unusual proper nouns. You can make your own additions fairly easily by using what is already there as examples. If you have any requests for additions, please message me through Github. Finally, I would love to integrate this program into something larger, like a browser extension that automatically grabs text and reads it. If you would like to work with me on something like that, contact me.
+---------------------------------------------------------------------------------------------------------------------------------
+ADDITIONAL NOTES: Parse.sh makes use of GNU extentions to sed, so if you are some non-GNU POSIX system, many replacements will not be made.

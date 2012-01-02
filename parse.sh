@@ -65,7 +65,7 @@ s/Nov\./November/g
 s/Dec\./December/g
 
 #dates
-s/\(January\|February\|March\|April\|May\|June\|July\|August\|September\|October\|November\|December\) \([0-9]\+\)/\1 \2th/g
+s/\(January\|February\|March\|April\|May\|June\|July\|August\|September\|October\|November\|December\) \([0-9]\{1,2\}\)\(\W\)/\1 \2th\3/g
 s/\(2\|3\)*1th/\11st/g
 s/\(2\|3\)*2th/\12nd/g
 

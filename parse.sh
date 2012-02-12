@@ -72,19 +72,20 @@ s/ \(2\)*3th/ \13rd/g
 
 #time zones
 s/EST/Eastern Standard Time/g
+s/\(\W\)ET*\(\W\)/\1Eastern Time\2/g
 s/CST/Central Standard Time/g
 s/KST/Korean Standard Time/g
 
 #days of the week
-s/Sun\b/Sunday/g
-s/Mon\b/Monday/g
-s/Tue\b/Tuesday/g
-s/Tues\b/Tuesday/g
-s/Wed\b/Wednesday/g
-s/Thu\b/Thursday/g
-s/Thurs\b/Thursday/g
-s/Fri\b/Friday/g
-s/Sat\b/Saturday/g
+s/Sun\./Sunday/g
+s/Mon\./Monday/g
+s/Tue\./Tuesday/g
+s/Tues\./Tuesday/g
+s/Wed\./Wednesday/g
+s/Thu\./Thursday/g
+s/Thurs\./Thursday/g
+s/Fri\./Friday/g
+s/Sat\./Saturday/g
 
 #Say years properly
 s/\([0-9]\)000/\1 thousand/g
@@ -144,26 +145,34 @@ s/\(\W\)WV\(\W\)/\1west virginia\2/g
 s/\(\W\)WI\(\W\)/\1wisconsin\2/g
 s/\(\W\)WY\(\W\)/\1wyoming\2/g
 
-#other names
-s/AT\&T/eighty-entee/g
-s/U\.S\./US/g
-s/NET/net/g
-
-#political abbreviations
+#US government affiliated abbreviations
 s/R-/Republican of /g
 s/D-/Democrat of /g
 s/SCOTUS/US Supreme Court/g
 s/POTUS/President of the US/g
+s/\(\W\)DOD\(\W\)/\1Department of Defense\2/gI
+s/\(\W\)DOJ\(\W\)/\1Department of Justice\2/gI
+s/U\.S\./US/g
 
-#starcraft
-s/archon/arkon/g
-s/Archon/arkon/g
+#other names
+s/AT\&T/eighty-entee/g
+s/NET/net/g
+s/DDoS/DDOS/g
+s/WWI\(\W\)/WW1\1/g
+s/WW\(II\|1\|2\)/World War \1/g
 s/III/3/g
 s/II/2/g
-s/protoss/protawss/g
-s/Protoss/Protawss/g
 
-#misc. punctuation
+#starcraft
+s/archon/arkon/gI
+s/protoss/protawss/gI
+
+#basic mispronounced words
+s/\(\W\)eke\(s\|d\)*\(\W\)/\1eeke\2\3/g
+s/\(\W\)caucuse\(s\|d\)\(\W\)/\1caucus\'\2\3/gI
+
+#misc. punctuation and annoyances
 #/\.\"/\. endquote./g
 #s/\"/quote /g
-s/ |/,/g
+s/|/, /g
+s/^Advertisement//g

@@ -49,7 +49,7 @@ s/\$\([0-9]*\) trillion/\1 trillion dollars/g
 s/\$\([0-9]*\) billion/\1 billion dollars/g
 s/\$\([0-9]*\) million/\1 million dollars/g
 s/\$\([0-9]*\),000/\1 thousand dollars/g
-s/\$\([0-9]*\) /\1 dollars/g
+s/\$\([0-9]*\)\( \|\.\|?\)/\1 dollars\2/g
 
 #months of the year
 s/Jan\./January/g
@@ -72,7 +72,7 @@ s/ \(2\)*3th/ \13rd/g
 
 #time zones
 s/EST/Eastern Standard Time/g
-s/\(\W\)ET*\(\W\)/\1Eastern Time\2/g
+s/\(\W\)ET$/\1Eastern Time/g
 s/CST/Central Standard Time/g
 s/KST/Korean Standard Time/g
 
@@ -157,11 +157,13 @@ s/U\.S\./US/g
 #other names
 s/AT\&T/eighty-entee/g
 s/NET/net/g
+s/ZIP code/zip code/g #useful for voices which say 'z' as 'zed'
 s/DDoS/DDOS/g
 s/WWI\(\W\)/WW1\1/g
 s/WW\(II\|1\|2\)/World War \1/g
 s/III/3/g
 s/II/2/g
+s/Super\( \)\?PAC\(s\)\?\(\W\)/super pac\2\3/gI
 
 #starcraft
 s/archon/arkon/gI
@@ -170,6 +172,7 @@ s/protoss/protawss/gI
 #basic mispronounced words
 s/\(\W\)eke\(s\|d\)*\(\W\)/\1eeke\2\3/g
 s/\(\W\)caucuse\(s\|d\)\(\W\)/\1caucus\'\2\3/gI
+s/sushi/sooshee/gI
 
 #misc. punctuation and annoyances
 #/\.\"/\. endquote./g

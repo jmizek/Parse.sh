@@ -11,6 +11,8 @@ s/Bernanke/Bernankee/g
 s/bin Laden/bin lahden/g
 s/Reagan/Raygan/g
 s/Bachmann/Bahkmann/g
+s/John F\. Kennedy/John F Kennedy/g
+s/Super\( \)\?PAC\(s\)\?\(\W\)/super pac\2\3/gI
 
 #abbreviations
 s/vs\./versus/g
@@ -27,6 +29,8 @@ s/MBps/ megabytes per second/g
 s/Mbps/ megabits per second/g
 s/kBps/ kilobytes per second/g
 s/kbps/ kilobits per second/g
+s/WWI\(\W\)/WW1\1/g
+s/WW\(II\|1\|2\)/World War \1/g
 
 #titles
 s/Mr\./Mister/g
@@ -93,6 +97,12 @@ s/\([0-9]\)\([0-9]\)\([0-9]\)\([0-9]\)/\1\2 \3\4/g
 s/\([0-9]\)\([0-9]\) 00/\1\2 hundred/g
 s/\([0-9]\)\([0-9]\) 0\([0-9]\)/\1\2 oh \3/g
 
+#roman numerals
+s/\(\W\)VI\(\W\)/\16\2/g
+s/\(\W\)IV\(\W\)/\14\2/g #could be problematic for things like IV drips
+s/III/3/g
+s/II/2/g
+
 #state postal abbreviations
 s/\(\W\)AL\(\W\)/\1alabama\2/g
 s/\(\W\)AK\(\W\)/\1alaska\2/g
@@ -129,7 +139,7 @@ s/\(\W\)NY\(\W\)/\1newyork\2/g
 s/\(\W\)NC\(\W\)/\1north carolina\2/g
 s/\(\W\)ND\(\W\)/\1north dakota\2/g
 s/\(\W\)OH\(\W\)/\1ohio\2/g
-#s/\(\W\)OK\(\W\)/\1oklahoma\2/g
+#s/\(\W\)OK\(\W\)/\1oklahoma\2/g #interfieres with OK i.e. "alright"
 s/\(\W\)OR\(\W\)/\1oregon\2/g
 s/\(\W\)PA\(\W\)/\1pennsylvania\2/g
 s/\(\W\)RI\(\W\)/\1rhode island\2/g
@@ -159,11 +169,6 @@ s/AT\&T/eighty-entee/g
 s/NET/net/g
 s/ZIP code/zip code/g #useful for voices which say 'z' as 'zed'
 s/DDoS/DDOS/g
-s/WWI\(\W\)/WW1\1/g
-s/WW\(II\|1\|2\)/World War \1/g
-s/III/3/g
-s/II/2/g
-s/Super\( \)\?PAC\(s\)\?\(\W\)/super pac\2\3/gI
 
 #starcraft
 s/archon/arkon/gI
@@ -173,6 +178,7 @@ s/protoss/protawss/gI
 s/\(\W\)eke\(s\|d\)*\(\W\)/\1eeke\2\3/g
 s/\(\W\)caucuse\(s\|d\)\(\W\)/\1caucus\'\2\3/gI
 s/sushi/sooshee/gI
+s/penchant/pen-chant/gI
 
 #misc. punctuation and annoyances
 #/\.\"/\. endquote./g

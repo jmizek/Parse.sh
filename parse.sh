@@ -21,14 +21,17 @@ s/\([0-9]\+\)-\([0-9]\+\)/\1 to \2/g
 s/no\. \([0-9]\+\)/number \1/gI
 s/LAN/lan/g
 s/WAN/wan/g
-s/GHz/ giga hertz/g
-s/MHz/ mega hertz/g
+s/RAM/ram/g
+s/GHz/ giga hertz/gI
+s/MHz/ mega hertz/gI
 s/GBps/ gigabytes per second/g
 s/Gbps/ gigabits per second/g
 s/MBps/ megabytes per second/g
 s/Mbps/ megabits per second/g
 s/kBps/ kilobytes per second/g
 s/kbps/ kilobits per second/g
+s/\([0-9]\| \)MB\(\W\)/\1megabytes\2/g
+s/SD card/S-D card/g #without this SD gets turned to South Dakota
 s/WWI\(\W\)/WW1\1/g
 s/WW\(II\|1\|2\)/World War \1/g
 
@@ -48,10 +51,18 @@ s/Col\./Colonel/g
 s/Ltc\./lieutenant Colonel/gI
 s/LtCol\./lieutenant Colonel/gI
 
-#replace dollar amounts
-s/\$\([0-9]*\) trillion/\1 trillion dollars/g
-s/\$\([0-9]*\) billion/\1 billion dollars/g
-s/\$\([0-9]*\) million/\1 million dollars/g
+#replace dollar amounts when used as an adjective
+# eg. "The $35 model entered the manufacturing stage" should be
+#     "The 35 dollar model entered the manufacturing stage"
+# not "The 35 dollars model entered the manufacturing stage"
+# This is an ugly kludge, but it ought to provide better results.
+# I have my doubts as to whether this can be done accurately using
+# an empirical method.
+s/\(a\|the\) \$\([0-9]*\) \(tr\|b\|m\)illion/\1 \2 \3illion dollar/gI
+s/\(a\|the\) \$\([0-9]*\),000/\1 \2 thousand dollar/gI
+s/\(a\|the\) \$\([0-9]*\)\( \|\.\|?\)/\1 \2 dollar\3/gI
+#replace dollar amounts in typical fashion
+s/\$\([0-9]*\) \(tr\|b\|m\)illion/\1 \2illion dollars/g
 s/\$\([0-9]*\),000/\1 thousand dollars/g
 s/\$\([0-9]*\)\( \|\.\|?\)/\1 dollars\2/g
 
@@ -176,9 +187,10 @@ s/protoss/protawss/gI
 
 #basic mispronounced words
 s/\(\W\)eke\(s\|d\)*\(\W\)/\1eeke\2\3/g
-s/\(\W\)caucuse\(s\|d\)\(\W\)/\1caucus\'\2\3/gI
+s/caucuse\(s\|d\)\(\W\)/caucus\'\1\2/gI
 s/sushi/sooshee/gI
 s/penchant/pen-chant/gI
+s/reissu\(e\|es\|ed\|ing\)\(\W\)/re-issu\1\2/gI
 
 #misc. punctuation and annoyances
 #/\.\"/\. endquote./g

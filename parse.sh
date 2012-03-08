@@ -18,6 +18,7 @@ s/Super \?PAC\(s\)\?\(\W\)/super pac\1\2/gI
 s/vs\.\?/versus/g
 s/\([0-9]\+\)-\([0-9]\+\)/\1 to \2/g
 s/no\. \([0-9]\+\)/number \1/gI
+s/\(\W\)Co\./\1Company/g
 s/WWI\(\W\)/WW1\1/g
 s/WW\(II\|1\|2\)/World War \1/g
 
@@ -89,6 +90,7 @@ s/ \(2\|3\)*2th/ \12nd/g
 s/ \(2\)*3th/ \13rd/g
 
 #time zones
+s/PST/Pacific Standard Time/g
 s/EST/Eastern Standard Time/g
 s/\(\W\)ET$/\1Eastern Time/g
 s/CST/Central Standard Time/g
@@ -176,7 +178,10 @@ s/SCOTUS/US Supreme Court/g
 s/POTUS/President of the US/g
 s/\(\W\)DOD\(\W\)/\1Department of Defense\2/gI
 s/\(\W\)DOJ\(\W\)/\1Department of Justice\2/gI
-s/\(\W\)DHS\(\W\)/\1Department of Homeland Security\2/gI
+s/\(\W\)DHS\(\W\)/\1Department of Homeland Security\2/g
+s/\(\W\)OIG\(\W\)/\1Office of the Inspector General\2/g
+s/\(\W\)OMB\(\W\)/\1Office of Management and Budget\2/g
+
 s/U\.S\./US/g
 s/ZIP code/zip code/g #especially useful for voices which say 'z' as 'zed'
 
@@ -194,6 +199,7 @@ s/sushi/sooshee/gI #comes out as "suh-shee" otherwise
 s/penchant/pen-chant/gI #comes out as "pawnshawnt" otherwise
 s/reissu\(e\|es\|ed\|ing\)\(\W\)/re-issu\1\2/gI #interprets ei as a diagraph otherwise
 s/patent/paghtent/gI #comes out as "pay-tent" otherwise
+s/broccoli/brah-coli/gI #comes out with the accent on the second syllable rather than the first
 
 #misc. punctuation and annoyances
 #/\.\"/\. endquote./g

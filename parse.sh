@@ -13,6 +13,7 @@ s/Reagan/Raygan/g
 s/Bachmann/Bahkmann/g
 s/John F\. Kennedy/John F Kennedy/g
 s/Super \?PAC\(s\)\?\(\W\)/super pac\1\2/gI
+s/ACLU/A-C-L-U/g
 
 #abbreviations
 s/vs\.\?/versus/g
@@ -28,16 +29,26 @@ s/WAN/wan/g
 s/NET/net/g
 s/RAM/ram/g
 s/DDoS/DDOS/g
-s/GHz/ giga hertz/gI
-s/MHz/ mega hertz/gI
-s/GBps/ gigabytes per second/g
-s/Gbps/ gigabits per second/g
-s/MBps/ megabytes per second/g
-s/Mbps/ megabits per second/g
-s/kBps/ kilobytes per second/g
-s/kbps/ kilobits per second/g
-s/\([0-9]\| \)MB\(\W\)/\1megabytes\2/g
 s/SD card/S-D card/g #without this, SD gets turned to South Dakota
+
+#computational units
+s/\(G\|M\|k\)Hz/\1-hertz/gI
+s/\(GB\|MB\|kB\)ps/\1 per second/gI
+s/\([0-9]\| \)\(G\|M\|k\|K\)b\(\W\)/\1\2-bits\3/g #both upper and lowercase K to ensure success
+s/\([0-9]\| \)\(G\|M\|k\|K\)B\(\W\)/\1\2-bytes\3/g
+s/G-\(bits\|bytes\|hertz\)/giga-\1/g
+s/M-\(bits\|bytes\|hertz\)/mega-\1/g
+s/k-\(bits\|bytes\|hertz\)/kilo-\1/gI
+
+#electrical units
+s/k\(A\|V\|W\)/kilo-\1/g
+s/m\(A\|V\|W\)/milli-\1/g
+s/\(u\|µ\)\(A\|V\|W\)/micro-\2/g
+s/n\(A\|V\|W\)/nano-\1/g
+s/p\(A\|V\|W\)/pico-\1/g
+s/\(kilo\|milli\|micro\|nano\|pico\)-A/\1-amps/g
+s/\(kilo\|milli\|micro\|nano\|pico\)-V/\1-volts/g
+s/\(kilo\|milli\|micro\|nano\|pico\)-W/\1-watts/g
 
 #titles
 s/Mr\./Mister/g
@@ -63,12 +74,12 @@ s/LtCol\./lieutenant Colonel/gI
 # I have my doubts as to whether this can be done accurately using
 # an empirical method.
 s/\(a\|the\) \$\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1 \2\3\4 \5illion dollar/gI
-s/\(a\|the\) \$\([0-9]*\),000/\1 \2 thousand dollar/gI
-s/\(a\|the\) \$\([0-9]*\)\( \|\.\|?\)/\1 \2 dollar\3/gI
+s/\(a\|the\) \$\([0-9]*\)\(,[0-9]\+\)\?\.\([0-9]\+\)/\1 \2\3 dollar and \4 cent/gI
+s/\(a\|the\) \$\([0-9]*\)\(,[0-9]\+\)\?/\1 \2\3 dollar/gI
 #replace dollar amounts in typical fashion
 s/\$\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1\2\3 \4illion dollars/g
-s/\$\([0-9]*\),000/\1 thousand dollars/g
-s/\$\([0-9]*\)\( \|\.\|?\)/\1 dollars\2/g
+s/\$\([0-9]*\)\(,[0-9]\+\)\?\.\([0-9]\+\)/\1\2 dollars and \3 cents/g
+s/\$\([0-9]*\)\(,[0-9]\+\)\?/\1\2 dollars/g
 
 #months of the year
 s/Jan\./January/g
@@ -85,9 +96,9 @@ s/Dec\./December/g
 
 #dates
 s/\(January\|February\|March\|April\|May\|June\|July\|August\|September\|October\|November\|December\) \([0-9]\{1,2\}\)\(\W\)/\1 \2th\3/g
-s/ \(2\|3\)*1th/ \11st/g
-s/ \(2\|3\)*2th/ \12nd/g
-s/ \(2\)*3th/ \13rd/g
+s/ \(2\|3\)\?1th/ \11st/g
+s/ \(2\|3\)\?2th/ \12nd/g
+s/ \(2\)\?3th/ \13rd/g
 
 #time zones
 s/PST/Pacific Standard Time/g
@@ -150,8 +161,8 @@ s/\(\W\)NE\(\W\)/\1nebraska\2/g
 s/\(\W\)NV\(\W\)/\1nevada\2/g
 s/\(\W\)NH\(\W\)/\1new hampshire\2/g
 s/\(\W\)NJ\(\W\)/\1new jersey\2/g
-s/\(\W\)NM\(\W\)/\1newmexico\2/g
-s/\(\W\)NY\(\W\)/\1newyork\2/g
+s/\(\W\)NM\(\W\)/\1new mexico\2/g
+s/\(\W\)NY\(\W\)/\1new york\2/g
 s/\(\W\)NC\(\W\)/\1north carolina\2/g
 s/\(\W\)ND\(\W\)/\1north dakota\2/g
 s/\(\W\)OH\(\W\)/\1ohio\2/g
@@ -181,8 +192,6 @@ s/\(\W\)DOJ\(\W\)/\1Department of Justice\2/gI
 s/\(\W\)DHS\(\W\)/\1Department of Homeland Security\2/g
 s/\(\W\)OIG\(\W\)/\1Office of the Inspector General\2/g
 s/\(\W\)OMB\(\W\)/\1Office of Management and Budget\2/g
-
-s/U\.S\./US/g
 s/ZIP code/zip code/g #especially useful for voices which say 'z' as 'zed'
 
 #other names

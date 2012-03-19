@@ -18,6 +18,7 @@ s/ACLU/A-C-L-U/g
 #abbreviations
 s/vs\.\?/versus/g
 s/\([0-9]\+\)-\([0-9]\+\)/\1 to \2/g
+s/\([0-9]\+\)x\([0-9]\+\)/\1 by \2/g
 s/no\. \([0-9]\+\)/number \1/gI
 s/\(\W\)Co\./\1Company/g
 s/WWI\(\W\)/WW1\1/g
@@ -30,6 +31,7 @@ s/NET/net/g
 s/RAM/ram/g
 s/DDoS/DDOS/g
 s/SD card/S-D card/g #without this, SD gets turned to South Dakota
+s/ASCII/ass-key/g #looks rude, but gets pronounced correctly
 
 #computational units
 s/\(G\|M\|k\)Hz/\1-hertz/gI
@@ -47,8 +49,10 @@ s/\(u\|µ\)\(A\|V\|W\)/micro-\2/g
 s/n\(A\|V\|W\)/nano-\1/g
 s/p\(A\|V\|W\)/pico-\1/g
 s/\(kilo\|milli\|micro\|nano\|pico\)-A/\1-amps/g
+s/\(kilo\|milli\|micro\|nano\|pico\)-amps\(H\|Hr\)/\1-amp-hour/gI
 s/\(kilo\|milli\|micro\|nano\|pico\)-V/\1-volts/g
 s/\(kilo\|milli\|micro\|nano\|pico\)-W/\1-watts/g
+s/\(kilo\|milli\|micro\|nano\|pico\)-watts\(H\|Hr\)/\1-watt-hour/gI
 
 #titles
 s/Mr\./Mister/g
@@ -80,6 +84,14 @@ s/\(a\|the\) \$\([0-9]*\)\(,[0-9]\+\)\?/\1 \2\3 dollar/gI
 s/\$\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1\2\3 \4illion dollars/g
 s/\$\([0-9]*\)\(,[0-9]\+\)\?\.\([0-9]\+\)/\1\2 dollars and \3 cents/g
 s/\$\([0-9]*\)\(,[0-9]\+\)\?/\1\2 dollars/g
+#replace British pounds when used as an adjective
+s/\(a\|the\) £\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1 \2\3\4 \5illion pound/gI
+s/\(a\|the\) £\([0-9]*\)\(,[0-9]\+\)\?\.\([0-9]\+\)/\1 \2\3.\4 pound/gI
+s/\(a\|the\) £\([0-9]*\)\(,[0-9]\+\)\?/\1 \2\3 pound/gI
+#replace British pound amounts in typical fashion
+s/£\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1\2\3 \4illion pounds/g
+s/£\([0-9]*\)\(,[0-9]\+\)\?\.\([0-9]\+\)/\1\2.\3 pounds/g
+s/£\([0-9]*\)\(,[0-9]\+\)\?/\1\2 pounds/g
 
 #months of the year
 s/Jan\./January/g
@@ -100,12 +112,14 @@ s/ \(2\|3\)\?1th/ \11st/g
 s/ \(2\|3\)\?2th/ \12nd/g
 s/ \(2\)\?3th/ \13rd/g
 
-#time zones
+#time and time zones
 s/PST/Pacific Standard Time/g
 s/EST/Eastern Standard Time/g
 s/\(\W\)ET$/\1Eastern Time/g
 s/CST/Central Standard Time/g
 s/KST/Korean Standard Time/g
+s/\([0-9]\):00/\1o-clock/g
+s/\([0-9]\):0\([0-9]\)/\1o\2/g
 
 #days of the week
 s/Sun\./Sunday/g

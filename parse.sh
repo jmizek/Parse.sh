@@ -196,6 +196,7 @@ s/ZIP code/zip code/g #especially useful for voices which say 'z' as 'zed'
 
 #other names
 s/AT\&T/eighty-entee/g
+s/IEEE/I triple-E/g
 
 #starcraft
 s/archon/arkon/gI

@@ -79,6 +79,10 @@ s/\([0-9]\| \)[uµ]-\(grams\|meters\|seconds\)/\1micro-\2/g
 s/\([0-9]\| \)n-\(grams\|meters\|seconds\)/\1nano-\2/g
 s/\([0-9]\| \)p-\(grams\|meters\|seconds\)/\1pico-\2/g
 
+#yet more units
+s/\([0-9]\+\)' \?\([0-9]\+\)"/\1 foot \2/g #'
+s/\([0-9]\| \)[lL]b\.\?/\1pound/g
+
 #titles
 s/Mr\./Mister/g
 s/Ms\./Miss/g
@@ -106,7 +110,7 @@ s/\(a\|the\) \$\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1 \2\3\4 \5illio
 s/\(a\|the\) \$\([0-9]*\)\(,[0-9]\+\)\?\.\([0-9]\+\)/\1 \2\3 dollar and \4 cent/gI
 s/\(a\|the\) \$\([0-9]*\)\(,[0-9]\+\)\?/\1 \2\3 dollar/gI
 #replace dollar amounts in typical fashion
-s/\$\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1\2\3 \4illion dollars/g
+s/\$\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1\2\3 \4illion dollars/gI
 s/\$\([0-9]*\)\(,[0-9]\+\)\?\.\([0-9]\+\)/\1\2 dollars and \3 cents/g
 s/\$\([0-9]*\)\(,[0-9]\+\)\?/\1\2 dollars/g
 #replace British pounds when used as an adjective
@@ -114,22 +118,22 @@ s/\(a\|the\) £\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1 \2\3\4 \5illio
 s/\(a\|the\) £\([0-9]*\)\(,[0-9]\+\)\?\.\([0-9]\+\)/\1 \2\3.\4 pound/gI
 s/\(a\|the\) £\([0-9]*\)\(,[0-9]\+\)\?/\1 \2\3 pound/gI
 #replace British pound amounts in typical fashion
-s/£\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1\2\3 \4illion pounds/g
+s/£\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1\2\3 \4illion pounds/gI
 s/£\([0-9]*\)\(,[0-9]\+\)\?\.\([0-9]\+\)/\1\2.\3 pounds/g
 s/£\([0-9]*\)\(,[0-9]\+\)\?/\1\2 pounds/g
 
 #months of the year
-s/Jan\./January/g
-s/Feb\./February/g
-s/Mar\./March/g
-s/Apr\./April/g
-s/Jun\./June/g
-s/Jul\./July/g
-s/Aug\./August/g
-s/Sept\./September/g
-s/Oct\./October/g
-s/Nov\./November/g
-s/Dec\./December/g
+s/Jan\.\? \([0-9]\)/January \1/g
+s/Feb\.\? \([0-9]\)/February \1/g
+s/Mar\.\? \([0-9]\)/March \1/g
+s/Apr\.\? \([0-9]\)/April \1/g
+s/Jun\.\? \([0-9]\)/June \1/g
+s/Jul\.\? \([0-9]\)/July \1/g
+s/Aug\.\? \([0-9]\)/August \1/g
+s/Sept\?\.\? \([0-9]\)/September \1/g
+s/Oct\.\? \([0-9]\)/October \1/g
+s/Nov\.\? \([0-9]\)/November \1/g
+s/Dec\.\? \([0-9]\)/December \1/g
 
 #dates
 s/\(January\|February\|March\|April\|May\|June\|July\|August\|September\|October\|November\|December\) \([0-9]\{1,2\}\)\(\W\)/\1 \2th\3/g

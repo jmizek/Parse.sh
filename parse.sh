@@ -71,7 +71,7 @@ s/\(kilo\|milli\|micro\|nano\|pico\)-L/\1-liters/g
 # of the need to make sure they aren't part of a word
 s/\([0-9]\| \)\([kmµunp]\)g\(\W\)/\1\2-grams\3/g #removed 'c' because no one says centigrams
 s/\([0-9]\| \)\([mµunp]\)s\(\W\)/\1\2-seconds\3/g #removed 'c' and 'k' because no one uses them in this way
-s/\([0-9]\| \)\([kcmµnp]\)m\(\W\)/\1\2-meters\3/g #removed 'u' to avoid confusion with um as a word
+s/\([0-9]\| \)\([kcmµn]\)m\(\W\)/\1\2-meters\3/g #removed 'u' and 'p' to avoid confusion with um as a word and pm re: time
 s/\([0-9]\| \)k-\(grams\|meters\)/\1kilo-\2/g
 s/\([0-9]\| \)c-meters/\1centi-meters/g
 s/\([0-9]\| \)m-\(grams\|meters\|seconds\)/\1milli-\2/g
@@ -238,6 +238,7 @@ s/AT\&T/eighty-entee/g
 s/IEEE/I triple-E/g
 s/SNES/S-NES/g #for super nintendo
 s/iPhone \?\([3-9]\)S/iPhone\1-S/g
+s/Cato\(\W\)/Kayto/g
 
 #starcraft
 s/archon/arkon/gI

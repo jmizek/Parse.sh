@@ -70,7 +70,7 @@ s/\(kilo\|milli\|micro\|nano\|pico\)-L/\1-liters/g
 # these must be separate from upper-case units because
 # of the need to make sure they aren't part of a word
 s/\([0-9]\| \)\([kmµunp]\)g\(\W\)/\1\2-grams\3/g #removed 'c' because no one says centigrams
-s/\([0-9]\| \)\([mµunp]\)s\(\W\)/\1\2-seconds\3/g #removed 'c' and 'k' because no one uses them in this way
+s/\([0-9]\| \)\([mµnp]\)s\(\W\)/\1\2-seconds\3/g #removed 'c' and 'k' because no one uses them in this way, 'u' for word 'us'
 s/\([0-9]\| \)\([kcmµn]\)m\(\W\)/\1\2-meters\3/g #removed 'u' and 'p' to avoid confusion with um as a word and pm re: time
 s/\([0-9]\| \)k-\(grams\|meters\)/\1kilo-\2/g
 s/\([0-9]\| \)c-meters/\1centi-meters/g

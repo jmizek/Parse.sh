@@ -18,7 +18,10 @@ s/ACLU/A-C-L-U/g
 #abbreviations
 s/vs\.\?/versus/g
 s/\([0-9]\+\)-\([0-9]\+\)/\1 to \2/g
+s/\([0-9]\+\)x10\^\([0-9]\+\)/\1 times 10 to the \2th/g #scientific notation with positive exponent
+s/\([0-9]\+\)x10\^-\([0-9]\+\)/\1 times 10 to the negative \2th/g #scientific notation with negative exponent
 s/\([0-9]\+\)x\([0-9]\+\)/\1 by \2/g
+s/\([0-9]\+\)x\(\W\)/\1 times\2/g
 s/no\. \([0-9]\+\)/number \1/gI
 s/\(\W\)Co\./\1Company/g
 s/WWI\(\W\)/WW1\1/g
@@ -29,30 +32,52 @@ s/LAN/lan/g
 s/WAN/wan/g
 s/NET/net/g
 s/RAM/ram/g
+s/ROM/rom/g
 s/DDoS/DDOS/g
+s/SIM/sim/g
+s/WiMAX/WiMax/g
+s/SSID/S-S-I-D/g
+s/MMORPG/muh-morpuguh/g #Tribute to "Yatzee"; comment this out and uncomment the next line for proper pronunciation
+#s/MMORPG/MMO-RPG/g #uncomment this and comment out the above line for proper pronunciation
 s/SD card/S-D card/g #without this, SD gets turned to South Dakota
 s/ASCII/ass-key/g #looks rude, but gets pronounced correctly
+s/ISPs/I-S-Pees/g #also looks somewhat rude, but again, necessary
 
 #computational units
-s/\(G\|M\|k\)Hz/\1-hertz/gI
-s/\(GB\|MB\|kB\)ps/\1 per second/gI
-s/\([0-9]\| \)\(G\|M\|k\|K\)b\(\W\)/\1\2-bits\3/g #both upper and lowercase K to ensure success
-s/\([0-9]\| \)\(G\|M\|k\|K\)B\(\W\)/\1\2-bytes\3/g
+s/\([TGMk]\)Hz/\1-hertz/gI
+s/\(TB\|GB\|MB\|kB\)ps/\1 per second/gI
+s/\([0-9]\| \)\([TGMkK]\)b\(\W\)/\1\2-bits\3/g #both upper and lowercase K to ensure success
+s/\([0-9]\| \)\([TGMkK]\)B\(\W\)/\1\2-bytes\3/g
+s/T-\(bits\|bytes\|hertz\)/terra-\1/g
 s/G-\(bits\|bytes\|hertz\)/giga-\1/g
 s/M-\(bits\|bytes\|hertz\)/mega-\1/g
 s/k-\(bits\|bytes\|hertz\)/kilo-\1/gI
 
-#electrical units
-s/k\(A\|V\|W\)/kilo-\1/g
-s/m\(A\|V\|W\)/milli-\1/g
-s/\(u\|µ\)\(A\|V\|W\)/micro-\2/g
-s/n\(A\|V\|W\)/nano-\1/g
-s/p\(A\|V\|W\)/pico-\1/g
+#electrical units or other units with upper-case letters
+s/k\([AVWL]\)/kilo-\1/g
+s/m\([AVWL]\)/milli-\1/g
+s/[uµ]\([AVWL]\)/micro-\1/g
+s/n\([AVWL]\)/nano-\1/g
+s/p\([AVWL]\)/pico-\1/g
 s/\(kilo\|milli\|micro\|nano\|pico\)-A/\1-amps/g
 s/\(kilo\|milli\|micro\|nano\|pico\)-amps\(H\|Hr\)/\1-amp-hour/gI
 s/\(kilo\|milli\|micro\|nano\|pico\)-V/\1-volts/g
 s/\(kilo\|milli\|micro\|nano\|pico\)-W/\1-watts/g
 s/\(kilo\|milli\|micro\|nano\|pico\)-watts\(H\|Hr\)/\1-watt-hour/gI
+s/\(kilo\|milli\|micro\|nano\|pico\)-L/\1-liters/g
+
+#units of distance or other units with lower-case letters
+# these must be separate from upper-case units because
+# of the need to make sure they aren't part of a word
+s/\([0-9]\| \)\([kmµunp]\)g\(\W\)/\1\2-grams\3/g #removed 'c' because no one says centigrams
+s/\([0-9]\| \)\([mµunp]\)s\(\W\)/\1\2-seconds\3/g #removed 'c' and 'k' because no one uses them in this way
+s/\([0-9]\| \)\([kcmµnp]\)m\(\W\)/\1\2-meters\3/g #removed 'u' to avoid confusion with um as a word
+s/\([0-9]\| \)k-\(grams\|meters\)/\1kilo-\2/g
+s/\([0-9]\| \)c-meters/\1centi-meters/g
+s/\([0-9]\| \)m-\(grams\|meters\|seconds\)/\1milli-\2/g
+s/\([0-9]\| \)[uµ]-\(grams\|meters\|seconds\)/\1micro-\2/g
+s/\([0-9]\| \)n-\(grams\|meters\|seconds\)/\1nano-\2/g
+s/\([0-9]\| \)p-\(grams\|meters\|seconds\)/\1pico-\2/g
 
 #titles
 s/Mr\./Mister/g
@@ -108,9 +133,9 @@ s/Dec\./December/g
 
 #dates
 s/\(January\|February\|March\|April\|May\|June\|July\|August\|September\|October\|November\|December\) \([0-9]\{1,2\}\)\(\W\)/\1 \2th\3/g
-s/ \(2\|3\)\?1th/ \11st/g
-s/ \(2\|3\)\?2th/ \12nd/g
-s/ \(2\)\?3th/ \13rd/g
+s/ \([2-9]\)\?1th/ \11st/g #fixes other ordered numbers
+s/ \([2-9]\)\?2th/ \12nd/g #fixes other ordered numbers
+s/ \([2-9]\)\?3th/ \13rd/g #fixes other ordered numbers
 
 #time and time zones
 s/PST/Pacific Standard Time/g
@@ -211,14 +236,16 @@ s/ZIP code/zip code/g #especially useful for voices which say 'z' as 'zed'
 #other names
 s/AT\&T/eighty-entee/g
 s/IEEE/I triple-E/g
+s/SNES/S-NES/g #for super nintendo
+s/iPhone \?\([3-9]\)S/iPhone\1-S/g
 
 #starcraft
 s/archon/arkon/gI
 s/protoss/protawss/gI
 
 #basic mispronounced words
-s/\(\W\)eke\(s\|d\)*\(\W\)/\1eeke\2\3/g #comes out as "eck" otherwise
-s/caucuse\(s\|d\)\(\W\)/caucus\'\1\2/gI #does not interpret suffixes correctly
+s/\(\W\)eke\([sd]\)*\(\W\)/\1eeke\2\3/g #comes out as "eck" otherwise
+s/caucuse\([sd]\)\(\W\)/caucus\'\1\2/gI #does not interpret suffixes correctly
 s/sushi/sooshee/gI #comes out as "suh-shee" otherwise
 s/penchant/pen-chant/gI #comes out as "pawnshawnt" otherwise
 s/reissu\(e\|es\|ed\|ing\)\(\W\)/re-issu\1\2/gI #interprets ei as a diagraph otherwise

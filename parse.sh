@@ -142,11 +142,11 @@ s/ \([2-9]\)\?2th/ \12nd/g #fixes other ordered numbers
 s/ \([2-9]\)\?3th/ \13rd/g #fixes other ordered numbers
 
 #time and time zones
-s/PST/Pacific Standard Time/g
-s/EST/Eastern Standard Time/g
+s/\(\W\)PST/\1Pacific Standard Time/g
+s/\(\W\)EST/\1Eastern Standard Time/g
 s/\(\W\)ET$/\1Eastern Time/g
-s/CST/Central Standard Time/g
-s/KST/Korean Standard Time/g
+s/\(\W\)CST/\1Central Standard Time/g
+s/\(\W\)KST/\1Korean Standard Time/g
 s/\([0-9]\):00/\1o-clock/g
 s/\([0-9]\):0\([0-9]\)/\1o\2/g
 
@@ -172,6 +172,25 @@ s/\(\W\)VI\(\W\)/\16\2/g
 s/\(\W\)IV\(\W\)/\14\2/g #could be problematic for things like IV drips
 s/III/3/g
 s/II/2/g
+
+#starcraft
+s/archon/arkon/gI
+s/protoss/protawss/gI
+s/esports/eesports/gI
+s/SC2/Starcraft2/g
+s/SC:BW/Starcraft Broodwar/gI
+s/LaLuSh/La-Lush/g
+s/\([TPZ]\)v\([TPZX]\)/\1-v-\2/gI
+s/Z-v-\([TPZX]\)/Zee-v-\1/gI
+s/\(T\|P\|Zee\)-v-Z/\1-v-Zee/gI
+
+#common abbreviations on the internet
+s/\(\W\)BTW\(\W\)/\1By the way\2/g
+s/\(\W\)IMO\(\W\)/\1In my opinion\2/g
+s/\(\W\)IMHO\(\W\)/\1In my humble opinion\2/g
+s/\(\W\)AFAIK\(\W\)/\1As far as I know\2/g
+s/\(\W\)IIRC\(\W\)/\1If I recall correctly\2/g
+s/\(\W\)YMMV\(\W\)/\1Your mileage may vary\2/g
 
 #state postal abbreviations
 s/\(\W\)AL\(\W\)/\1alabama\2/g
@@ -248,10 +267,6 @@ s/iPhone \?\([3-9]\)S/iPhone\1-S/g
 s/Cato\(\W\)/Kayto/g
 s/401k/4-O1 K/gI
 
-#starcraft
-s/archon/arkon/gI
-s/protoss/protawss/gI
-
 #basic mispronounced words
 s/\(\W\)eke\([sd]\)*\(\W\)/\1eeke\2\3/g #comes out as "eck" otherwise
 s/caucuse\([sd]\)\(\W\)/caucus\'\1\2/gI #does not interpret suffixes correctly
@@ -260,6 +275,8 @@ s/penchant/pen-chant/gI #comes out as "pawnshawnt" otherwise
 s/reissu\(e\|es\|ed\|ing\)\(\W\)/re-issu\1\2/gI #interprets ei as a diagraph otherwise
 s/patent/paghtent/gI #comes out as "pay-tent" otherwise
 s/broccoli/brah-coli/gI #comes out with the accent on the second syllable rather than the first
+s/beta/bayta/gI #comes out as "beeta" otherwise
+s/geyser/guyser/gI #comes out as "gee-sur" otherwise
 
 #misc. punctuation and annoyances
 #/\.\"/\. endquote./g

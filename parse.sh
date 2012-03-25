@@ -225,6 +225,9 @@ s/\(\W\)WV\(\W\)/\1west virginia\2/g
 s/\(\W\)WI\(\W\)/\1wisconsin\2/g
 s/\(\W\)WY\(\W\)/\1wyoming\2/g
 
+#other locales
+s/L\.A\./L Eh/g
+
 #US government affiliated abbreviations
 s/R-/Republican of /g
 s/D-/Democrat of /g
@@ -243,6 +246,7 @@ s/IEEE/I triple-E/g
 s/SNES/S-NES/g #for super nintendo
 s/iPhone \?\([3-9]\)S/iPhone\1-S/g
 s/Cato\(\W\)/Kayto/g
+s/401k/4-O1 K/gI
 
 #starcraft
 s/archon/arkon/gI

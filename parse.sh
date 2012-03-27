@@ -34,6 +34,7 @@ s/NET/net/g
 s/RAM/ram/g
 s/ROM/rom/g
 s/DDoS/DDOS/g
+s/RFID/R-F-I-D/g
 s/SIM/sim/g
 s/WiMAX/WiMax/g
 s/SSID/S-S-I-D/g
@@ -204,7 +205,7 @@ s/\(\W\)DE\(\W\)/\1delaware\2/g
 s/\(\W\)FL\(\W\)/\1florida\2/g
 s/\(\W\)GA\(\W\)/\1georgia\2/g
 s/\(\W\)HI\(\W\)/\1hawaii\2/g
-s/\(\W\)ID\(\W\)/\1idaho\2/g
+s/\([RD]\)-ID\(\W\)/\1-idaho\2/g #intereferes with ID as in "identification"
 s/\(\W\)IL\(\W\)/\1illinois\2/g
 s/\(\W\)IN\(\W\)/\1indiana\2/g
 s/\(\W\)IA\(\W\)/\1iowa\2/g
@@ -228,7 +229,7 @@ s/\(\W\)NY\(\W\)/\1new york\2/g
 s/\(\W\)NC\(\W\)/\1north carolina\2/g
 s/\(\W\)ND\(\W\)/\1north dakota\2/g
 s/\(\W\)OH\(\W\)/\1ohio\2/g
-#s/\(\W\)OK\(\W\)/\1oklahoma\2/g #interfieres with OK i.e. "alright"
+s/\([RD]\)-OK\(\W\)/\1-oklahoma\2/g #interferes with OK i.e. "alright"
 s/\(\W\)OR\(\W\)/\1oregon\2/g
 s/\(\W\)PA\(\W\)/\1pennsylvania\2/g
 s/\(\W\)RI\(\W\)/\1rhode island\2/g
@@ -246,8 +247,10 @@ s/\(\W\)WY\(\W\)/\1wyoming\2/g
 
 #other locales
 s/L\.A\./L Eh/g
+s/USSR/U-S-S-R/g
 
 #US government affiliated abbreviations
+s/U\. \?S\./US/g
 s/R-/Republican of /g
 s/D-/Democrat of /g
 s/SCOTUS/US Supreme Court/g
@@ -266,6 +269,9 @@ s/SNES/S-NES/g #for super nintendo
 s/iPhone \?\([3-9]\)S/iPhone\1-S/g
 s/Cato\(\W\)/Kayto/g
 s/401k/4-O1 K/gI
+s/\(\W\)RIM\(\W\)/\1R-I-M\2/g
+s/Wii/Wee/g
+s/Xbox 360/Xbox 3-60/gI
 
 #basic mispronounced words
 s/\(\W\)eke\([sd]\)*\(\W\)/\1eeke\2\3/g #comes out as "eck" otherwise
@@ -277,6 +283,7 @@ s/patent/paghtent/gI #comes out as "pay-tent" otherwise
 s/broccoli/brah-coli/gI #comes out with the accent on the second syllable rather than the first
 s/beta/bayta/gI #comes out as "beeta" otherwise
 s/geyser/guyser/gI #comes out as "gee-sur" otherwise
+s/gizmo/ghizmo/gI #comes out as "gizz-mo" otherwise
 
 #misc. punctuation and annoyances
 #/\.\"/\. endquote./g

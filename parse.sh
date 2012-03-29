@@ -31,6 +31,7 @@ s/WW\(II\|1\|2\)/World War \1/g
 s/LAN/lan/g
 s/WAN/wan/g
 s/NET/net/g
+s/\(\W\)MAC\(\W\)/\1mac\2/g
 s/RAM/ram/g
 s/ROM/rom/g
 s/DDoS/DDOS/g
@@ -43,6 +44,8 @@ s/MMORPG/muh-morpuguh/g #Tribute to "Yatzee"; comment this out and uncomment the
 s/SD card/S-D card/g #without this, SD gets turned to South Dakota
 s/ASCII/ass-key/g #looks rude, but gets pronounced correctly
 s/ISPs/I-S-Pees/g #also looks somewhat rude, but again, necessary
+s/VoIP/V-O-I-P/g
+s/\(\W\)SIP\(\W\)/\1Sip\2/g
 
 #computational units
 s/\([TGMk]\)Hz/\1-hertz/gI
@@ -192,36 +195,37 @@ s/\(\W\)IMHO\(\W\)/\1In my humble opinion\2/g
 s/\(\W\)AFAIK\(\W\)/\1As far as I know\2/g
 s/\(\W\)IIRC\(\W\)/\1If I recall correctly\2/g
 s/\(\W\)YMMV\(\W\)/\1Your mileage may vary\2/g
+s/\(\W\)FTFY\(\W\)/\1Fixed that for you\2/g
 
-#state postal abbreviations
-s/\(\W\)AL\(\W\)/\1alabama\2/g
-s/\(\W\)AK\(\W\)/\1alaska\2/g
-s/\(\W\)AZ\(\W\)/\1arizona\2/g
+#state postal and general abbreviations
+s/\(\W\)AL\(\W\)/\1alabama\3/g
+s/\(\W\)AK\(\W\)/\1alaska\3/g
+s/\(\W\)\(AZ\|Ariz\.\)\(\W\)/\1arizona\3/g
 s/\(\W\)AR\(\W\)/\1arkansas\2/g
-s/\(\W\)CA\(\W\)/\1california\2/g
-s/\(\W\)CO\(\W\)/\1colorado\2/g
-s/\(\W\)CT\(\W\)/\1connecticut\2/g
-s/\(\W\)DE\(\W\)/\1delaware\2/g
-s/\(\W\)FL\(\W\)/\1florida\2/g
+s/\(\W\)\(CA\|Cal\.\|Calif\.\)\(\W\)/\1california\3/g
+s/\(\W\)\(CO\|Colo\.\)\(\W\)/\1colorado\3/g
+s/\(\W\)\(CT\|Conn\.\)\(\W\)/\1connecticut\3/g
+s/\(\W\)\(DE\|Del\.\)\(\W\)/\1delaware\3/g
+s/\(\W\)\(FL\|Fla\.\)\(\W\)/\1florida\3/g
 s/\(\W\)GA\(\W\)/\1georgia\2/g
 s/\(\W\)HI\(\W\)/\1hawaii\2/g
 s/\([RD]\)-ID\(\W\)/\1-idaho\2/g #intereferes with ID as in "identification"
-s/\(\W\)IL\(\W\)/\1illinois\2/g
-s/\(\W\)IN\(\W\)/\1indiana\2/g
+s/\(\W\)\(IL\|Ill\.\)\(\W\)/\1illinois\3/g
+s/\(\W\)\(IN\|Ind\.\)\(\W\)/\1indiana\3/g
 s/\(\W\)IA\(\W\)/\1iowa\2/g
-s/\(\W\)KS\(\W\)/\1kansas\2/g
+s/\(\W\)\(KS\|Kan\.\|Kans\.\)\(\W\)/\1kansas\3/g
 s/\(\W\)KY\(\W\)/\1kentucky\2/g
 s/\(\W\)LA\(\W\)/\1louisiana\2/g
 s/\(\W\)ME\(\W\)/\1maine\2/g
 s/\(\W\)MD\(\W\)/\1maryland\2/g
-s/\(\W\)MA\(\W\)/\1massachusetts\2/g
-s/\(\W\)MI\(\W\)/\1michigan\2/g
-s/\(\W\)MN\(\W\)/\1minnesota\2/g
+s/\(\W\)\(MA\|Mass\.\)\(\W\)/\1massachusetts\3/g
+s/\(\W\)\(MI\|Mich\.\)\(\W\)/\1michigan\3/g
+s/\(\W\)\(MN\|Minn\.\)\(\W\)/\1minnesota\3/g
 s/\(\W\)MS\(\W\)/\1mississippi\2/g
 s/\(\W\)MO\(\W\)/\1missouri\2/g
-s/\(\W\)MT\(\W\)/\1montana\2/g
-s/\(\W\)NE\(\W\)/\1nebraska\2/g
-s/\(\W\)NV\(\W\)/\1nevada\2/g
+s/\(\W\)\(MT\|Mont\.\)\(\W\)/\1montana\3/g
+s/\(\W\)\(NE\|Neb\.\|Nebr\.\)\(\W\)/\1nebraska\3/g
+s/\(\W\)\(NV\|Nev\.\)\(\W\)/\1nevada\3/g
 s/\(\W\)NH\(\W\)/\1new hampshire\2/g
 s/\(\W\)NJ\(\W\)/\1new jersey\2/g
 s/\(\W\)NM\(\W\)/\1new mexico\2/g
@@ -230,8 +234,8 @@ s/\(\W\)NC\(\W\)/\1north carolina\2/g
 s/\(\W\)ND\(\W\)/\1north dakota\2/g
 s/\(\W\)OH\(\W\)/\1ohio\2/g
 s/\([RD]\)-OK\(\W\)/\1-oklahoma\2/g #interferes with OK i.e. "alright"
-s/\(\W\)OR\(\W\)/\1oregon\2/g
-s/\(\W\)PA\(\W\)/\1pennsylvania\2/g
+s/\(\W\)\(OR\|Ore\.\|Oreg\.\)\(\W\)/\1oregon\3/g
+s/\(\W\)\(PA\|Penn\.\)\(\W\)/\1pennsylvania\3/g
 s/\(\W\)RI\(\W\)/\1rhode island\2/g
 s/\(\W\)SC\(\W\)/\1south carolina\2/g
 s/\(\W\)SD\(\W\)/\1south dakota\2/g
@@ -240,10 +244,10 @@ s/\(\W\)TX\(\W\)/\1texas\2/g
 s/\(\W\)UT\(\W\)/\1utah\2/g
 s/\(\W\)VT\(\W\)/\1vermont\2/g
 s/\(\W\)VA\(\W\)/\1virginia\2/g
-s/\(\W\)WA\(\W\)/\1washington\2/g
+s/\(\W\)\(WA\|Wash\.\)\(\W\)/\1washington\3/g
 s/\(\W\)WV\(\W\)/\1west virginia\2/g
-s/\(\W\)WI\(\W\)/\1wisconsin\2/g
-s/\(\W\)WY\(\W\)/\1wyoming\2/g
+s/\(\W\)\(WI\|Wis\.\)\(\W\)/\1wisconsin\3/g
+s/\(\W\)\(WY\|Wyo\.\)\(\W\)/\1wyoming\3/g
 
 #other locales
 s/L\.A\./L Eh/g
@@ -272,6 +276,9 @@ s/401k/4-O1 K/gI
 s/\(\W\)RIM\(\W\)/\1R-I-M\2/g
 s/Wii/Wee/g
 s/Xbox 360/Xbox 3-60/gI
+s/RIAA/R I Eh Eh/g
+s/MPAA/M-P Eh Eh/g
+s/WoW/Wow/g
 
 #basic mispronounced words
 s/\(\W\)eke\([sd]\)*\(\W\)/\1eeke\2\3/g #comes out as "eck" otherwise
@@ -284,6 +291,8 @@ s/broccoli/brah-coli/gI #comes out with the accent on the second syllable rather
 s/beta/bayta/gI #comes out as "beeta" otherwise
 s/geyser/guyser/gI #comes out as "gee-sur" otherwise
 s/gizmo/ghizmo/gI #comes out as "gizz-mo" otherwise
+s/cliched/cliche'd/gI #' #comes out as writen
+s/retiree/retire-ee/gI #comes out as "retire" otherwise
 
 #misc. punctuation and annoyances
 #/\.\"/\. endquote./g

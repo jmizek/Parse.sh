@@ -198,8 +198,8 @@ s/\(\W\)YMMV\(\W\)/\1Your mileage may vary\2/g
 s/\(\W\)FTFY\(\W\)/\1Fixed that for you\2/g
 
 #state postal and general abbreviations
-s/\(\W\)AL\(\W\)/\1alabama\3/g
-s/\(\W\)AK\(\W\)/\1alaska\3/g
+s/\(\W\)AL\(\W\)/\1alabama\2/g
+s/\(\W\)AK\(\W\)/\1alaska\2/g
 s/\(\W\)\(AZ\|Ariz\.\)\(\W\)/\1arizona\3/g
 s/\(\W\)AR\(\W\)/\1arkansas\2/g
 s/\(\W\)\(CA\|Cal\.\|Calif\.\)\(\W\)/\1california\3/g
@@ -264,6 +264,7 @@ s/\(\W\)DOJ\(\W\)/\1Department of Justice\2/gI
 s/\(\W\)DHS\(\W\)/\1Department of Homeland Security\2/g
 s/\(\W\)OIG\(\W\)/\1Office of the Inspector General\2/g
 s/\(\W\)OMB\(\W\)/\1Office of Management and Budget\2/g
+s/\(\W\)USDA\(\W\)/\1U-S-D-A\2/g
 s/ZIP code/zip code/g #especially useful for voices which say 'z' as 'zed'
 
 #other names

@@ -46,6 +46,7 @@ s/ASCII/ass-key/g #looks rude, but gets pronounced correctly
 s/ISPs/I-S-Pees/g #also looks somewhat rude, but again, necessary
 s/VoIP/V-O-I-P/g
 s/\(\W\)SIP\(\W\)/\1Sip\2/g
+s/IPv\([46]\)/I-P-V\1/g
 
 #computational units
 s/\([TGMk]\)Hz/\1-hertz/gI
@@ -147,9 +148,12 @@ s/ \([2-9]\)\?3th/ \13rd/g #fixes other ordered numbers
 
 #time and time zones
 s/\(\W\)PST/\1Pacific Standard Time/g
+s/\(\W\)PDT/\1Pacific Daylight Time/g
 s/\(\W\)EST/\1Eastern Standard Time/g
+s/\(\W\)EDT/\1Eastern Daylight Time/g
 s/\(\W\)ET$/\1Eastern Time/g
 s/\(\W\)CST/\1Central Standard Time/g
+s/\(\W\)CDT/\1Central Daylight Time/g
 s/\(\W\)KST/\1Korean Standard Time/g
 s/\([0-9]\):00/\1o-clock/g
 s/\([0-9]\):0\([0-9]\)/\1o\2/g
@@ -264,7 +268,7 @@ s/\(\W\)DOJ\(\W\)/\1Department of Justice\2/gI
 s/\(\W\)DHS\(\W\)/\1Department of Homeland Security\2/g
 s/\(\W\)OIG\(\W\)/\1Office of the Inspector General\2/g
 s/\(\W\)OMB\(\W\)/\1Office of Management and Budget\2/g
-s/\(\W\)USDA\(\W\)/\1U-S-D-A\2/g
+s/\(\W\)USDA\(\W\)/\1U-S-D-Eh\2/g
 s/ZIP code/zip code/g #especially useful for voices which say 'z' as 'zed'
 
 #other names
@@ -280,6 +284,7 @@ s/Xbox 360/Xbox 3-60/gI
 s/RIAA/R I Eh Eh/g
 s/MPAA/M-P Eh Eh/g
 s/WoW/Wow/g
+s/IETF/I-E-T-F/g
 
 #basic mispronounced words
 s/\(\W\)eke\([sd]\)*\(\W\)/\1eeke\2\3/g #comes out as "eck" otherwise
@@ -300,3 +305,4 @@ s/retiree/retire-ee/gI #comes out as "retire" otherwise
 #s/\"/quote /g
 s/|/, /g
 s/^Advertisement//g
+s/(pdf)//gI

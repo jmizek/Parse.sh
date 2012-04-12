@@ -28,15 +28,18 @@ s/WWI\(\W\)/WW1\1/g
 s/WW\(II\|1\|2\)/World War \1/g
 
 #technology
-s/LAN/lan/g
-s/WAN/wan/g
-s/NET/net/g
+s/\(\W\)LAN\(\W\)/\1lan\2/g
+s/\(\W\)WAN\(\W\)/\1wan\2/g
+s/\(\W\)NET\(\W\)/\1net\2/g
 s/\(\W\)MAC\(\W\)/\1mac\2/g
-s/RAM/ram/g
-s/ROM/rom/g
+s/\(\W\)RAM\(\W\)/\1ram\2/g
+s/\(\W\)ROM\(\W\)/\1rom\2/g
+s/\(\W\)SIM\(\W\)/\1sim\2/g
+s/\(\W\)SIP\(\W\)/\1Sip\2/g
+s/\(\W\)PIN\(\W\)/\1Pin\2/g
 s/DDoS/DDOS/g
 s/RFID/R-F-I-D/g
-s/SIM/sim/g
+s/\(\W\)Wifi\(\W\)/\1WiFi\2/g
 s/WiMAX/WiMax/g
 s/SSID/S-S-I-D/g
 s/MMORPG/muh-morpuguh/g #Tribute to "Yatzee"; comment this out and uncomment the next line for proper pronunciation
@@ -45,9 +48,9 @@ s/SD card/S-D card/g #without this, SD gets turned to South Dakota
 s/ASCII/ass-key/g #looks rude, but gets pronounced correctly
 s/ISPs/I-S-Pees/g #also looks somewhat rude, but again, necessary
 s/VoIP/V-O-I-P/g
-s/\(\W\)SIP\(\W\)/\1Sip\2/g
+
 s/IPv\([46]\)/I-P-V\1/g
-s/\(\W\)PIN\(\W\)/\1Pin\2/g
+
 s/802\.11/8-o-2point11/g
 
 #computational units
@@ -286,12 +289,15 @@ s/Cato\(\W\)/Kayto/g
 s/401k/4-O1 K/gI
 s/\(\W\)RIM\(\W\)/\1R-I-M\2/g
 s/Wii/Wee/g
-s/Xbox 360/Xbox 3-60/gI
+s/Xbox 360/Xbox three60/gI
 s/RIAA/R I Eh Eh/g
 s/MPAA/M-P Eh Eh/g
 s/WoW/Wow/g
 s/IETF/I-E-T-F/g
 s/OFDM/O-F-D-M/g
+s/Qt/Cute/g
+s/Kinect/Ki'nect/gI #' #
+s/Goldman Sachs/Goldman Sacks/g
 
 #basic mispronounced words
 s/\(\W\)eke\([sd]\)*\(\W\)/\1eeke\2\3/g #comes out as "eck" otherwise

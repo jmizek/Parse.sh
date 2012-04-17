@@ -39,6 +39,7 @@ s/\(\W\)SIP\(\W\)/\1Sip\2/g
 s/\(\W\)PIN\(\W\)/\1Pin\2/g
 s/DDoS/DDOS/g
 s/RFID/R-F-I-D/g
+s/\(\W\)APU\(\W\)/\1A-P-U\2/g
 s/\(\W\)Wifi\(\W\)/\1WiFi\2/g
 s/WiMAX/WiMax/g
 s/SSID/S-S-I-D/g
@@ -48,10 +49,9 @@ s/SD card/S-D card/g #without this, SD gets turned to South Dakota
 s/ASCII/ass-key/g #looks rude, but gets pronounced correctly
 s/ISPs/I-S-Pees/g #also looks somewhat rude, but again, necessary
 s/VoIP/V-O-I-P/g
-
 s/IPv\([46]\)/I-P-V\1/g
-
 s/802\.11/8-o-2point11/g
+s/\([0-9]\+\)MP camera/\1megapixel camera/g
 
 #computational units
 s/\([TGMk]\)Hz/\1-hertz/gI
@@ -59,7 +59,7 @@ s/\(TB\|GB\|MB\|kB\)ps/\1 per second/gI
 s/\([0-9]\| \)\([TGMkK]\)b\(\W\)/\1\2-bits\3/g #both upper and lowercase K to ensure success
 s/\([0-9]\| \)\([TGMkK]\)B\(\W\)/\1\2-bytes\3/g
 s/T-\(bits\|bytes\|hertz\)/terra-\1/g
-s/G-\(bits\|bytes\|hertz\)/giga-\1/g
+s/G-\(bits\|bytes\|hertz\)/giga-\1/gI
 s/M-\(bits\|bytes\|hertz\)/mega-\1/g
 s/k-\(bits\|bytes\|hertz\)/kilo-\1/gI
 
@@ -90,7 +90,7 @@ s/\([0-9]\| \)n-\(grams\|meters\|seconds\)/\1nano-\2/g
 s/\([0-9]\| \)p-\(grams\|meters\|seconds\)/\1pico-\2/g
 
 #yet more units
-s/\([0-9]\+\)' \?\([0-9]\+\)"/\1 foot \2/g #'
+s/\([0-9]\+\)' \?\([0-9]\+\)"/\1 foot \2/g #' #
 s/\([0-9]\| \)[lL]b\.\?/\1pound/g
 
 #titles
@@ -168,18 +168,16 @@ s/\([0-9]\):0\([0-9]\)/\1o\2/g
 #days of the week
 s/Sun\./Sunday/g
 s/Mon\./Monday/g
-s/Tue\./Tuesday/g
-s/Tues\./Tuesday/g
+s/Tues\?\./Tuesday/g
 s/Wed\./Wednesday/g
-s/Thu\./Thursday/g
-s/Thurs\./Thursday/g
+s/Thu\(rs\)\?\./Thursday/g
 s/Fri\./Friday/g
 s/Sat\./Saturday/g
 
 #Say years properly
 s/\([0-9]\)000/\1 thousand/g
 s/\([0-9]\)\([0-9]\)\([0-9]\)\([0-9]\)/\1\2 \3\4/g
-s/\([0-9]\)\([0-9]\) 00/\1\2 hundred/g
+s/\([0-9]\)\([0-9]\) 00/\1\2 hundred /g
 s/\([0-9]\)\([0-9]\) 0\([0-9]\)/\1\2 oh \3/g
 
 #roman numerals
@@ -206,7 +204,7 @@ s/\(\W\)IMHO\(\W\)/\1In my humble opinion\2/g
 s/\(\W\)AFAIK\(\W\)/\1As far as I know\2/g
 s/\(\W\)IIRC\(\W\)/\1If I recall correctly\2/g
 s/\(\W\)YMMV\(\W\)/\1Your mileage may vary\2/g
-s/\(\W\)FTFY\(\W\)/\1Fixed that for you\2/g
+s/\(\W\)FTFY\(\W\)/\1Fixed that for you\2/g #in #
 
 #state postal and general abbreviations
 s/\(\W\)AL\(\W\)/\1alabama\2/g
@@ -266,8 +264,8 @@ s/USSR/U-S-S-R/g
 
 #US government affiliated abbreviations
 s/U\. \?S\./US/g
-s/R-/Republican of /g
-s/D-/Democrat of /g
+s/\(\W\)R-/\1Republican of /g
+s/\(\W\)D-/\1Democrat of /g
 s/SCOTUS/US Supreme Court/g
 s/POTUS/President of the US/g
 s/\(\W\)DOD\(\W\)/\1Department of Defense\2/gI
@@ -298,6 +296,8 @@ s/OFDM/O-F-D-M/g
 s/Qt/Cute/g
 s/Kinect/Ki'nect/gI #' #
 s/Goldman Sachs/Goldman Sacks/g
+s/\(\W\)BoA\(\W\)/\1Bank of America\2/g
+s/Logitech/Logiteck/gI
 
 #basic mispronounced words
 s/\(\W\)eke\([sd]\)*\(\W\)/\1eeke\2\3/g #comes out as "eck" otherwise
@@ -314,6 +314,8 @@ s/cliched/cliche'd/gI #' #comes out as writen
 s/retiree/retire-ee/gI #comes out as "retire" otherwise
 s/nerfed/nerf'd/gI #' #comes out as ner-fed otherwise
 s/[Pp]wn/pohn/g
+s/eschew/eshew/gI
+s/\(\W\)A\/C\(\W\)/\1A-C\2/g
 
 #misc. punctuation and annoyances
 #/\.\"/\. endquote./g

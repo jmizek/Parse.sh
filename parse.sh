@@ -23,6 +23,7 @@ s/\([0-9]\+\)x10\^-\([0-9]\+\)/\1 times 10 to the negative \2th/g #scientific no
 s/\([0-9]\+\)x\([0-9]\+\)/\1 by \2/g
 s/\([0-9]\+\)x\(\W\)/\1 times\2/g
 s/no\. \([0-9]\+\)/number \1/gI
+s/#\([0-9]\+\)\(\W\)/number \1\2/gI
 s/\(\W\)Co\./\1Company/g
 s/WWI\(\W\)/WW1\1/g
 s/WW\(II\|1\|2\)/World War \1/g
@@ -53,14 +54,15 @@ s/IPv\([46]\)/I-P-V\1/g
 s/802\.11/8-o-2point11/g
 s/\([0-9]\+\)MP camera/\1megapixel camera/g
 
-#computational units
+#computational units and more
 s/\([TGMk]\)Hz/\1-hertz/gI
+s/\([TGM]\)eV/\1-electron-volts/g
 s/\(TB\|GB\|MB\|kB\)ps/\1 per second/gI
 s/\([0-9]\| \)\([TGMkK]\)b\(\W\)/\1\2-bits\3/g #both upper and lowercase K to ensure success
 s/\([0-9]\| \)\([TGMkK]\)B\(\W\)/\1\2-bytes\3/g
-s/T-\(bits\|bytes\|hertz\)/terra-\1/g
-s/G-\(bits\|bytes\|hertz\)/giga-\1/gI
-s/M-\(bits\|bytes\|hertz\)/mega-\1/g
+s/T-\(bits\|bytes\|hertz\|electron-volts\)/terra-\1/g
+s/G-\(bits\|bytes\|hertz\|electron-volts\)/giga-\1/gI
+s/M-\(bits\|bytes\|hertz\|electron-volts\)/mega-\1/g
 s/k-\(bits\|bytes\|hertz\)/kilo-\1/gI
 
 #electrical units or other units with upper-case letters
@@ -178,7 +180,8 @@ s/Sat\./Saturday/g
 s/\([0-9]\)000/\1 thousand/g
 s/\([0-9]\)\([0-9]\)\([0-9]\)\([0-9]\)/\1\2 \3\4/g
 s/\([0-9]\)\([0-9]\) 00/\1\2 hundred /g
-s/\([0-9]\)\([0-9]\) 0\([0-9]\)/\1\2 oh \3/g
+s/ hundred '\?s\(\W\)/ hundreds\1/g #' #correct issues with 1800s or 1800's coming out as 18 hundred s
+s/\([0-9]\)\([0-9]\) 0\([1-9]\)/\1\2 oh \3/g
 
 #roman numerals
 s/\(\W\)VI\(\W\)/\16\2/g
@@ -261,6 +264,7 @@ s/\(\W\)\(WY\|Wyo\.\)\(\W\)/\1wyoming\3/g
 #other locales
 s/L\.A\./L Eh/g
 s/USSR/U-S-S-R/g
+s/D\.C\./DC/g
 
 #US government affiliated abbreviations
 s/U\. \?S\./US/g
@@ -298,6 +302,8 @@ s/Kinect/Ki'nect/gI #' #
 s/Goldman Sachs/Goldman Sacks/g
 s/\(\W\)BoA\(\W\)/\1Bank of America\2/g
 s/Logitech/Logiteck/gI
+s/Yglesias/E-glayseeus/g
+s/Wiegel/Wygol/g
 
 #basic mispronounced words
 s/\(\W\)eke\([sd]\)*\(\W\)/\1eeke\2\3/g #comes out as "eck" otherwise
@@ -315,7 +321,7 @@ s/retiree/retire-ee/gI #comes out as "retire" otherwise
 s/nerfed/nerf'd/gI #' #comes out as ner-fed otherwise
 s/[Pp]wn/pohn/g
 s/eschew/eshew/gI
-s/\(\W\)A\/C\(\W\)/\1A-C\2/g
+s/\(\W\)A\/\([BC]\)\(\W\)/\1A-\2\3/g #for A/C as in "air conditioning" and A/B as in "A-B testing"
 
 #misc. punctuation and annoyances
 #/\.\"/\. endquote./g

@@ -47,6 +47,7 @@ s/SSID/S-S-I-D/g
 s/MMORPG/muh-morpuguh/g #Tribute to "Yatzee"; comment this out and uncomment the next line for proper pronunciation
 #s/MMORPG/MMO-RPG/g #uncomment this and comment out the above line for proper pronunciation
 s/SD card/S-D card/g #without this, SD gets turned to South Dakota
+s/micro[ -]SD/micro S-D/g #without this, SD gets turned to South Dakota
 s/ASCII/ass-key/g #looks rude, but gets pronounced correctly
 s/ISPs/I-S-Pees/g #also looks somewhat rude, but again, necessary
 s/VoIP/V-O-I-P/g
@@ -111,6 +112,8 @@ s/Col\./Colonel/g
 s/Ltc\./lieutenant Colonel/gI
 s/LtCol\./lieutenant Colonel/gI
 s/Ph\.D\./PhD/gI
+s/Jr\./Junior/g
+s/Sr\./Senior/g
 
 #replace dollar amounts when used as an adjective
 # eg. "The $35 model entered the manufacturing stage" should be
@@ -278,6 +281,8 @@ s/\(\W\)DHS\(\W\)/\1Department of Homeland Security\2/g
 s/\(\W\)OIG\(\W\)/\1Office of the Inspector General\2/g
 s/\(\W\)OMB\(\W\)/\1Office of Management and Budget\2/g
 s/\(\W\)USDA\(\W\)/\1U-S-D-Eh\2/g
+s/\(\W\)C.I.A.\(\W\)/\1CIA\2/g
+s/\(\W\)N.S.A.\(\W\)/\1NSA\2/g
 s/ZIP code/zip code/g #especially useful for voices which say 'z' as 'zed'
 s/H\.R\./HR/g #house resolution
 s/S\.B\./SB/g #senate bill
@@ -304,6 +309,14 @@ s/\(\W\)BoA\(\W\)/\1Bank of America\2/g
 s/Logitech/Logiteck/gI
 s/Yglesias/E-glayseeus/g
 s/Wiegel/Wygol/g
+s/SXSW/South by South-West/g
+s/Diablo/Deeablo/gI
+s/Calhoun/Calhoon/g
+s/\(\W\)al Qaeda/\1al-Qaeda/gI
+s/Qaeda/Qayda/g
+s/Cheney/Chainey/g
+s/Hussein/Hoosane/g
+s/Ahmadinejad/Ah'madin'ejad/g
 
 #basic mispronounced words
 s/\(\W\)eke\([sd]\)*\(\W\)/\1eeke\2\3/g #comes out as "eck" otherwise
@@ -320,8 +333,12 @@ s/cliched/cliche'd/gI #' #comes out as writen
 s/retiree/retire-ee/gI #comes out as "retire" otherwise
 s/nerfed/nerf'd/gI #' #comes out as ner-fed otherwise
 s/[Pp]wn/pohn/g
+s/C'mon/cuh-mon/gI #' #
 s/eschew/eshew/gI
 s/\(\W\)A\/\([BC]\)\(\W\)/\1A-\2\3/g #for A/C as in "air conditioning" and A/B as in "A-B testing"
+s/\(\W\)regale\([sd]\)\+\(\W\)/\1regale'\2\3/gI #' #
+s/\(\W\)sewn\(\W\)/\1sohn\2/gI
+s/douchebag/douchbag/gI
 
 #misc. punctuation and annoyances
 #/\.\"/\. endquote./g

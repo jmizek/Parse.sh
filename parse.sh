@@ -14,6 +14,10 @@ s/Bachmann/Bahkmann/g
 s/John F\. Kennedy/John F Kennedy/g
 s/Super \?PAC\(s\)\?\(\W\)/super pac\1\2/gI
 s/ACLU/A-C-L-U/g
+s/Obamacare/"Obama-care"/gI
+s/Romneycare/"RomneyCare"/gI
+s/Stephen Colbert/Stephen Colbair/gI
+s/Colbert Report/Colbair Repore/gI
 
 #abbreviations
 s/vs\.\?/versus/g
@@ -115,6 +119,8 @@ s/Ph\.D\./PhD/gI
 s/Jr\./Junior/g
 s/Sr\./Senior/g
 
+#replace USD with $ sign so it can be converted per below
+s/\(\W\)USD \?\([0-9]*\)/\$\1/g
 #replace dollar amounts when used as an adjective
 # eg. "The $35 model entered the manufacturing stage" should be
 #     "The 35 dollar model entered the manufacturing stage"
@@ -129,6 +135,7 @@ s/\(a\|the\) \$\([0-9]*\)\(,[0-9]\+\)\?/\1 \2\3 dollar/gI
 s/\$\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1\2\3 \4illion dollars/gI
 s/\$\([0-9]*\)\(,[0-9]\+\)\?\.\([0-9]\+\)/\1\2 dollars and \3 cents/g
 s/\$\([0-9]*\)\(,[0-9]\+\)\?/\1\2 dollars/g
+
 #replace British pounds when used as an adjective
 s/\(a\|the\) £\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1 \2\3\4 \5illion pound/gI
 s/\(a\|the\) £\([0-9]*\)\(,[0-9]\+\)\?\.\([0-9]\+\)/\1 \2\3.\4 pound/gI
@@ -137,6 +144,15 @@ s/\(a\|the\) £\([0-9]*\)\(,[0-9]\+\)\?/\1 \2\3 pound/gI
 s/£\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1\2\3 \4illion pounds/gI
 s/£\([0-9]*\)\(,[0-9]\+\)\?\.\([0-9]\+\)/\1\2.\3 pounds/g
 s/£\([0-9]*\)\(,[0-9]\+\)\?/\1\2 pounds/g
+
+#replace Euro when used as an adjective
+s/\(a\|the\) €\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1 \2\3\4 \5illion Euro/gI
+s/\(a\|the\) €\([0-9]*\)\(,[0-9]\+\)\?\.\([0-9]\+\)/\1 \2\3.\4 Euro/gI
+s/\(a\|the\) €\([0-9]*\)\(,[0-9]\+\)\?/\1 \2\3 Euro/gI
+#replace Euros in typical fashion
+s/€\([0-9]*\)\(\.\)\?\([0-9]*\) \(tr\|b\|m\)illion/\1\2\3 \4illion Euros/gI
+s/€\([0-9]*\)\(,[0-9]\+\)\?\.\([0-9]\+\)/\1\2.\3 Euros/g
+s/€\([0-9]*\)\(,[0-9]\+\)\?/\1\2 Euros/g
 
 #months of the year
 s/Jan\.\? \([0-9]\)/January \1/g
@@ -152,6 +168,9 @@ s/Nov\.\? \([0-9]\)/November \1/g
 s/Dec\.\? \([0-9]\)/December \1/g
 
 #dates
+#this handles dates like 12[th] October[,] 2008
+s/\(\W\|^\)\([0-9]\{1,2\}\)\(th\)\? \(January\|February\|March\|April\|May\|June\|July\|August\|September\|October\|November\|December\),\? \([0-9]\{4\}\)/\1\4 \2th, \5/g
+#this handles dates like October 12[, 2008]
 s/\(January\|February\|March\|April\|May\|June\|July\|August\|September\|October\|November\|December\) \([0-9]\{1,2\}\)\(\W\|$\)/\1 \2th\3/g
 s/ \([2-9]\)\?1th/ \11st/g #fixes other ordered numbers
 s/ \([2-9]\)\?2th/ \12nd/g #fixes other ordered numbers
@@ -239,8 +258,8 @@ s/\(\W\)\(MN\|Minn\.\)\(\W\)/\1minnesota\3/g
 s/\(\W\)MS\(\W\)/\1mississippi\2/g
 s/\(\W\)MO\(\W\)/\1missouri\2/g
 s/\(\W\)\(MT\|Mont\.\)\(\W\)/\1montana\3/g
-s/\(\W\)\(NE\|Neb\.\|Nebr\.\)\(\W\)/\1nebraska\3/g
-s/\(\W\)\(NV\|Nev\.\)\(\W\)/\1nevada\3/g
+s/\(\W\)\(NE\|Neb\.\?\|Nebr\.\)\(\W\)/\1nebraska\3/g
+s/\(\W\)\(NV\|Nev\.\?\)\(\W\)/\1nevada\3/g
 s/\(\W\)NH\(\W\)/\1new hampshire\2/g
 s/\(\W\)NJ\(\W\)/\1new jersey\2/g
 s/\(\W\)NM\(\W\)/\1new mexico\2/g
@@ -254,7 +273,7 @@ s/\(\W\)\(PA\|Penn\.\)\(\W\)/\1pennsylvania\3/g
 s/\(\W\)RI\(\W\)/\1rhode island\2/g
 s/\(\W\)SC\(\W\)/\1south carolina\2/g
 s/\(\W\)SD\(\W\)/\1south dakota\2/g
-s/\(\W\)TN\(\W\)/\1tennessee\2/g
+s/\(\W\)\(TN\|Tenn\.\)\(\W\)/\1tennessee\2/g
 s/\(\W\)TX\(\W\)/\1texas\2/g
 s/\(\W\)UT\(\W\)/\1utah\2/g
 s/\(\W\)VT\(\W\)/\1vermont\2/g
@@ -317,6 +336,10 @@ s/Qaeda/Qayda/g
 s/Cheney/Chainey/g
 s/Hussein/Hoosane/g
 s/Ahmadinejad/Ah'madin'ejad/g
+s/\(\W\)ADHD\(\W\)/\1A-D-H-D\2/g
+s/\(\W\)ADD\(\W\)/\1A-D-D\2/g
+s/Belarus/Behh-lahrooss/g
+s/LIBOR/LieBore/g
 
 #basic mispronounced words
 s/\(\W\)eke\([sd]\)*\(\W\)/\1eeke\2\3/g #comes out as "eck" otherwise
@@ -339,6 +362,7 @@ s/\(\W\)A\/\([BC]\)\(\W\)/\1A-\2\3/g #for A/C as in "air conditioning" and A/B a
 s/\(\W\)regale\([sd]\)\+\(\W\)/\1regale'\2\3/gI #' #
 s/\(\W\)sewn\(\W\)/\1sohn\2/gI
 s/douchebag/douchbag/gI
+s/bellyaching/bellyayking/gI
 
 #misc. punctuation and annoyances
 #/\.\"/\. endquote./g

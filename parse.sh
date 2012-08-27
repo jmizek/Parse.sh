@@ -299,6 +299,7 @@ s/\(\W\)DOJ\(\W\)/\1Department of Justice\2/gI
 s/\(\W\)DHS\(\W\)/\1Department of Homeland Security\2/g
 s/\(\W\)OIG\(\W\)/\1Office of the Inspector General\2/g
 s/\(\W\)OMB\(\W\)/\1Office of Management and Budget\2/g
+s/\(\W\|^\)DEA\(\W\|$\)/\1Drug Enforcement Agency\2/g
 s/\(\W\)USDA\(\W\)/\1U-S-D-Eh\2/g
 s/\(\W\)C.I.A.\(\W\)/\1CIA\2/g
 s/\(\W\)N.S.A.\(\W\)/\1NSA\2/g
@@ -363,6 +364,7 @@ s/\(\W\)regale\([sd]\)\+\(\W\)/\1regale'\2\3/gI #' #
 s/\(\W\)sewn\(\W\)/\1sohn\2/gI
 s/douchebag/douchbag/gI
 s/bellyaching/bellyayking/gI
+s/COINTELPRO/counter-intel-pro/gI #counter-intelligence program
 
 #misc. punctuation and annoyances
 #/\.\"/\. endquote./g
